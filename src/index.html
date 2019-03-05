@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <head>
   <meta charset="utf-8">
-  <title>MyApp</title>
+  <title>Angular 101</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,5 +11,22 @@
 </head>
 <body>
   <app-root></app-root>
+  <div [ngClass]="'example'" ng-app="myApp" ng-controller="myCtrl" style="text-align: center">
+
+      First Name: <input type="text" ng-model="firstName"><br>
+      Last Name: <input type="text" ng-model="lastName"><br><br>
+      <p>Hello my name is: </p>
+      <br>
+      Full Name: {{firstName + " " + lastName}}
+      
+  </div>
+      
+      <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+          $scope.firstName= "Jane";
+          $scope.lastName= "Doe";
+      });
+      </script>
 </body>
 </html>
